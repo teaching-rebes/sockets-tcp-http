@@ -105,7 +105,7 @@ void example_http_request(string server, string ressource) {
   sock = connect_to_server(server, 80);
   send_string(sock, "GET " + ressource + " HTTP/1.1\r\n");
   send_string(sock, "Host: " + server + "\r\n");
-  send_string(sock, "\r\n\r\n");
+  send_string(sock, "\r\n");
 
   string response;
   do {
