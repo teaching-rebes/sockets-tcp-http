@@ -99,6 +99,23 @@ void example_request_domain_info(string hostname) {
 // senden und die Response auszugeben!
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void example_http_request(string server, string ressource) {
+  SOCKET sock;
+
+  sock = connect_to_server(server, 80);
+  send_string(sock, "GET " + ressource + " HTTP/1.1\r\n");
+  send_string(sock, "Host: " + server + "\r\n");
+  send_string(sock, "\r\n\r\n");
+
+  string response;
+  do {
+    response = receive_string(sock);
+    cout << response;
+  } while (response.length() > 0);
+
+  cout << endl;
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // main method
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -107,8 +124,9 @@ int main() {
 
   check_winsock_version();
 
-  example_receive_time();
+  // example_receive_time();
   // example_request_domain_info("google.com");
+  example_http_request("nicht-wahr.de", "/");
 
   WSACleanup();
 }
