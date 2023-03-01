@@ -67,6 +67,11 @@ string receive_string(SOCKET socket) {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Beispiel 1: Aktuelle Zeit vom Zeitserver über einen TCP Socket abfragen
+//
+// Hintergrundinformationen (nicht wichtig, aber interessant):
+// * Es handelt sich um einen der aeltesten Dienste im Internet.
+// * Es wird das Daytime Protocol (Port 13) genutzt, siehe https://en.wikipedia.org/wiki/Daytime_Protocol
+// * Original Publikation mit Infos zum vom NIST genutzten Format: https://tf.nist.gov/general/pdf/1046.pdf
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void example_receive_time() {
   SOCKET sock;
