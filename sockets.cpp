@@ -70,8 +70,10 @@ string receive_string(SOCKET socket) {
 //
 // Hintergrundinformationen (nicht wichtig, aber interessant):
 // * Es handelt sich um einen der aeltesten Dienste im Internet.
-// * Es wird das Daytime Protocol (Port 13) genutzt, siehe https://en.wikipedia.org/wiki/Daytime_Protocol
-// * Original Publikation mit Infos zum vom NIST genutzten Format: https://tf.nist.gov/general/pdf/1046.pdf
+// * Es wird das Daytime Protocol (Port 13) genutzt, siehe
+// https://en.wikipedia.org/wiki/Daytime_Protocol
+// * Original Publikation mit Infos zum vom NIST genutzten Format:
+// https://tf.nist.gov/general/pdf/1046.pdf
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void example_receive_time() {
   SOCKET sock;
@@ -102,6 +104,10 @@ void example_request_domain_info(string hostname) {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // TODO: Implementieren Sie hier eine Methode um einen HTTP GET Request zu
 // senden und die Response auszugeben!
+//
+// Stellen Sie die Anfrage dabei einen Server, der unverschlüsselt per HTTP
+// antwortet, z.B. die URLs "http://httpforever.com" oder
+// "http://info.cern.ch/hypertext/WWW/TheProject.html"
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
