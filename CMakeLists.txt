@@ -14,8 +14,11 @@ SET(GCC_COVERAGE_LINK_FLAGS    "")
 # Add executable target with source files listed in SOURCE_FILES variable
 add_executable(sockets ${SOURCE_FILES_SOCKETS})
 
-# Link ws2_32 socket libraries to the executible
-TARGET_LINK_LIBRARIES(sockets ws2_32)
+# Link libraries to the executible
+#   for Windows: link with winsock2 library
+# TARGET_LINK_LIBRARIES(sockets ws2_32)
+#   for Linux/Unix: linking with the sockets library is sufficient
+TARGET_LINK_LIBRARIES(sockets)
 
 SET(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS}")
 SET(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} ${GCC_COVERAGE_LINK_FLAGS}")
