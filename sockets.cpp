@@ -104,13 +104,32 @@ void example_request_domain_info(string hostname) {
 // "http://info.cern.ch/hypertext/WWW/TheProject.html"
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void example_http_request(string server, string ressource) {
+  SOCKET sock;
+
+  sock = connect_to_server(server, 80);
+  send_string(sock, "GET " + ressource + " HTTP/1.1\r\n");
+  send_string(sock, "Host: " + server + "\r\n");
+  send_string(sock, "\r\n");
+
+  string response;
+  do {
+    response = receive_string(sock);
+    cout << response;
+  } while (response.length() > 0);
+
+  cout << endl;
+}
+
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // main method
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 int main() {
 
-  example_receive_time();
+  // example_receive_time();
   // example_request_domain_info("google.com");
+  example_http_request("httpforever.com", "/");
 
 }
