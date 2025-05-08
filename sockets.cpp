@@ -68,8 +68,9 @@ string receive_string(SOCKET socketfd) {
 void example_receive_time() {
   SOCKET sock;
 
-  sock = connect_to_server("time.nist.gov", 13);
+  sock = connect_to_server("time-a-g.nist.gov", 13);
   string response = receive_string(sock);
+  cout << "server responds: "<< endl;
   cout << response << endl;
 
   close(sock);
